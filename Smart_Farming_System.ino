@@ -1,12 +1,6 @@
 #include <WiFi.h>
 #include <Firebase_ESP_Client.h>
 
-#define DATABASE_URL "https://smart-farming-system-fa125-default-rtdb.firebaseio.com/"
-#define API_KEY "AIzaSyCpl5kltd-BpNgHLEnbiAaNowVtZv6SqSM"
-
-#define WIFI_SSID "Atharva_Kaplay"
-#define WIFI_PASSWORD "Kaplay@108"
-
 unsigned long sendDataPrevMillis = 0;
 
 FirebaseData fbdo;
