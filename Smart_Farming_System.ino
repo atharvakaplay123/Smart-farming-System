@@ -28,7 +28,7 @@ void setup() {
   pinMode(led, OUTPUT);
   digitalWrite(led, 0);
 
-  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+  WiFi.begin(WIFI_SSID, WIFI_PASSWORD); // Defined in secrets.ino
   Serial.print("Connecting to Wi-Fi");
   while (WiFi.status() != WL_CONNECTED) {
     digitalWrite(led, HIGH);
@@ -42,14 +42,14 @@ void setup() {
   Serial.println(WiFi.localIP());
   Serial.println();
 
-  config.api_key = API_KEY;
+  config.api_key = API_KEY; // Defined in secrets.ino
   /* Assign the RTDB URL (required) */
-  config.database_url = DATABASE_URL;
+  config.database_url = DATABASE_URL; // Defined in secrets.ino
 
   config.timeout.serverResponse = 2 * 1000;
   config.cert.data = NULL;
-  auth.user.email = "";  // Leave email and password empty
-  auth.user.password = "";
+  auth.user.email = EMAIL;  // Defined in secrets.ino
+  auth.user.password = Password; // Defined in secrets.ino
   Firebase.begin(&config, &auth);
   // Comment or pass false value when WiFi reconnection will control by your code or third party library e.g. WiFiManager
   Firebase.reconnectNetwork(true);
