@@ -1,3 +1,4 @@
+#include "secrets.ino"
 #include <WiFi.h>
 #include <Firebase_ESP_Client.h>
 
@@ -7,7 +8,7 @@ FirebaseData fbdo;
 FirebaseAuth auth;
 FirebaseConfig config;
 
-#include <DHT.h>
+#include "DHT.h"
 #define DHTPIN 13
 DHT dht(DHTPIN, DHT11);
 
@@ -47,8 +48,8 @@ void setup() {
 
   config.timeout.serverResponse = 2 * 1000;
   config.cert.data = NULL;
-  auth.user.email = "robotix.107@gmail.com";  // Leave email and password empty
-  auth.user.password = "Kaplay@108";
+  auth.user.email = "";  // Leave email and password empty
+  auth.user.password = "";
   Firebase.begin(&config, &auth);
   // Comment or pass false value when WiFi reconnection will control by your code or third party library e.g. WiFiManager
   Firebase.reconnectNetwork(true);
